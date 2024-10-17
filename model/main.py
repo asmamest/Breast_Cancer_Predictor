@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score , classification_report
 import pickle
-
+    
 
 def create_model(data):
     X = data.drop(['diagnosis'],axis=1)
@@ -16,7 +16,7 @@ def create_model(data):
     
     # split the data 
     X_train , X_test , y_train , y_test = train_test_split(
-        X,y,test_size=0.2 , random_state=42
+        X,y,test_size=0.2, random_state=42
     )
     
     # train the model
@@ -25,7 +25,7 @@ def create_model(data):
     
     # test the model 
     y_pred = model.predict(X_test)
-    print('Accuracy of our model : ', accuracy_score(y_test,y_pred))
+    print('Accuracy of our model :', accuracy_score(y_test,y_pred))
     print("Classification report: \n", classification_report(y_test,y_pred))
     
     return model , scaler
